@@ -95,7 +95,7 @@
 <meta property="og:image" content="https://ae01.alicdn.com/kf/H81547f3cf3044581a431dd655845bff5S.png">
 <meta property="og:image" content="https://ae01.alicdn.com/kf/H080e3e73f13c4bc798842f9a50e5e2892.png">
 <meta property="og:image" content="https://ae01.alicdn.com/kf/He9b1e7d3420a407c87aa0ce512299747q.png">
-<meta property="og:updated_time" content="2019-09-25T06:35:41.891Z">
+<meta property="og:updated_time" content="2019-09-25T08:54:42.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建个人博客网站">
 <meta name="twitter:description" content="前言首先作者近一年多来都有在CSDN平台写博客，之前就一直想尝试搭建一个个人博客，然后再上面写写小东西。终于经过两天的折腾，把博客网站搭建起来了。主要是借助Hexo和Github Pages：  Github Pages是由 GitHub 官方提供的一种免费的静态站点托管服务，让我们可以在 GitHub 仓库里托管和发布自己的静态网站页面。 Hexo 是一个快速、简洁且高效的静态博客框架，它基于">
@@ -257,7 +257,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Weiguang.Tu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/touxiang.png">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -294,6 +294,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/23/搭建个人博客网站/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/09/23/搭建个人博客网站/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -388,6 +398,76 @@
     
 
     
+      <div>
+        <!-- JS库 clipboard 拷贝内容到粘贴板-->
+<script src="https://cdn.bootcss.com/clipboard.js/2.0.1/clipboard.min.js"></script>
+
+<!-- JS库 sweetalert 显示提示信息-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<ul class="post-copyright">
+
+  <!-- 本文标题 -->
+  <li>
+    <strong>本文标题： </strong>
+    搭建个人博客网站
+  </li>
+
+  <!-- 本文作者 -->
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Weiguang.Tu
+  </li>
+
+  <!-- 创建时间 -->
+  <li>
+    <strong>创建于： </strong>
+    2019年09月23日 - 17时09分
+  </li>
+
+  <!-- 修改时间 -->
+  <li>
+    <strong>更新于： </strong>
+    2019年09月25日 - 16时09分
+  </li>
+
+<!--
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/09/23/搭建个人博客网站/" title="搭建个人博客网站">http://yoursite.com/2019/09/23/搭建个人博客网站/</a>
+  </li>
+-->
+
+  <!-- 引用链接 -->
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/09/23/搭建个人博客网站/" title="搭建个人博客网站">http://yoursite.com/2019/09/23/搭建个人博客网站/</a>
+    <span class="copy-path" title="点击复制引用链接"><i style="cursor: pointer" class="fa fa-clipboard" data-clipboard-text="['s Blog | 搭建个人博客网站](http://yoursite.com/2019/09/23/搭建个人博客网站/)" aria-label="post.copy_success"></i></span>
+  </li>
+
+  <!-- 版权声明 -->
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href rel="external nofollow" target="_blank"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a></a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+<script>
+  var clipboard = new ClipboardJS('.fa-clipboard');
+  clipboard.on('success', function(target){
+    var message = document.createElement('div');
+    message.innerHTML = '<i class="fa fa-check-circle message-icon"></i><span class="message-content">' + target.trigger.getAttribute('aria-label') + '</span>';
+    swal({
+      content: message,
+      className: "copy-success-message",
+      timer: 1000,
+      button: false
+    });
+  });
+</script>
+
+      </div>
+    
 
     <footer class="post-footer">
       
@@ -420,6 +500,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
 
   
 
@@ -458,8 +545,6 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/touxiang.png" alt="Weiguang.Tu">
-            
               <p class="site-author-name" itemprop="name">Weiguang.Tu</p>
               <p class="site-description motion-element" itemprop="description">技术在于折腾</p>
           </div>
@@ -485,6 +570,34 @@
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tuweiguang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:tuweiguang@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_31930499" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-link"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.google.com" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -537,6 +650,7 @@
   
 </div>
 
+<!--
 
   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
@@ -548,19 +662,9 @@
 
   <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
+-->
 
 
-
-<div class="powered-by">
-<i class="fa fa-user-md"></i>
-<span id="busuanzi_container_site_uv">
-  本站总访客数:<span id="busuanzi_value_site_uv"></span>&nbsp;&nbsp;| 
-</span>
-<span id="busuanzi_container_site_pv">
-    &nbsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-</div>
-</div>
 
         
 
@@ -571,8 +675,8 @@
 
 
         
-      </footer></div>
-    
+      </div>
+    </footer>
 
     
       <div class="back-to-top">
@@ -583,7 +687,7 @@
 
     
 
-  
+  </div>
 
   
 
@@ -710,6 +814,43 @@
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'tuweiguang',
+            repo: 'blogment',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '02ded89410a50249d60117034c479a147d2006d1',
+            
+                client_id: 'f9e25336bef95a304e74'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
 
 
 
