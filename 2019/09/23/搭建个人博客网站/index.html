@@ -86,12 +86,18 @@
 <meta property="og:site_name" content="野蛮生长|西门少年">
 <meta property="og:description" content="前言首先作者近一年多来都有在CSDN平台写博客，之前就一直想尝试搭建一个个人博客，然后再上面写写小东西。终于经过两天的折腾，把博客网站搭建起来了。主要是借助Hexo和Github Pages：  Github Pages是由 GitHub 官方提供的一种免费的静态站点托管服务，让我们可以在 GitHub 仓库里托管和发布自己的静态网站页面。 Hexo 是一个快速、简洁且高效的静态博客框架，它基于">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ae01.alicdn.com/kf/H34f1d952ee5c4678b327d710fcaf66b5c.jpg">
-<meta property="og:updated_time" content="2019-09-25T02:04:56.780Z">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H346fb90eef08470db0096de21118ea8ee.png">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/Hcbb4cd3fc26a477ab952e6f88d424dd3o.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H2b98f36b65c54b18b60a6fe834090187T.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H5258a6acd5bc4201947017434985a87fg.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H27b9cba5e16e460b92fa5b5d0461bde1X.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H81547f3cf3044581a431dd655845bff5S.png">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H080e3e73f13c4bc798842f9a50e5e2892.png">
+<meta property="og:updated_time" content="2019-09-25T06:22:26.304Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建个人博客网站">
 <meta name="twitter:description" content="前言首先作者近一年多来都有在CSDN平台写博客，之前就一直想尝试搭建一个个人博客，然后再上面写写小东西。终于经过两天的折腾，把博客网站搭建起来了。主要是借助Hexo和Github Pages：  Github Pages是由 GitHub 官方提供的一种免费的静态站点托管服务，让我们可以在 GitHub 仓库里托管和发布自己的静态网站页面。 Hexo 是一个快速、简洁且高效的静态博客框架，它基于">
-<meta name="twitter:image" content="https://ae01.alicdn.com/kf/H34f1d952ee5c4678b327d710fcaf66b5c.jpg">
+<meta name="twitter:image" content="https://ae01.alicdn.com/kf/H346fb90eef08470db0096de21118ea8ee.png">
 
 
 
@@ -314,8 +320,9 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>首先作者近一年多来都有在CSDN平台写博客，之前就一直想尝试搭建一个个人博客，然后再上面写写小东西。终于经过两天的折腾，把博客网站搭建起来了。主要是借助Hexo和Github Pages：</p>
 <ul>
 <li>Github Pages是由 GitHub 官方提供的一种免费的静态站点托管服务，让我们可以在 GitHub 仓库里托管和发布自己的静态网站页面。</li>
-<li>Hexo 是一个快速、简洁且高效的静态博客框架，它基于 Node.js 运行，可以将我们撰写的 Markdown(.md文件) 文档解析渲染成静态的 HTML 网页。<br>简单地说就是：<br>markdown文件 –&gt; 经过Hexo转换为html文件，上传 –&gt; Github</li>
+<li>Hexo 是一个快速、简洁且高效的静态博客框架，它基于 Node.js 运行，可以将我们撰写的 Markdown(.md文件) 文档解析渲染成静态的 HTML 网页。</li>
 </ul>
+<p>简单地说就是：<br><img src="https://ae01.alicdn.com/kf/H346fb90eef08470db0096de21118ea8ee.png" alt></p>
 <h1 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h1><p>作者本地环境：CentOS7 64位。<br>上面也说到了，搭建Hexo需要依赖nodejs环境和Git工具。</p>
 <h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>很简单：<code>yum install git</code><br>Git工具若不会，请参考<a href="https://www.liaoxuefeng.com/wiki/896043488029600" title="廖雪峰的Git教程" target="_blank" rel="noopener">廖雪峰的Git教程</a>。</p>
 <h2 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h2><ol>
@@ -325,10 +332,16 @@
 </ol>
 <h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><ol>
 <li>安装<br><code>npm install hexo-cli -g</code>：这个过程可能很慢，作者在家安装好几次才安装成功，但是公司一下就好了</li>
-<li>快速开始<br><code>hexo init blog</code>：初始化blog<br><code>cd blog</code><br><code>hexo install</code>：安装组件<br><code>hexo server</code>：启动本地预览，登录本地网页查看<br>若以上都没问题，说明Hexo已经安装完成，接下来就可以定制化自己的博客网站了。</li>
+<li>快速开始<br><code>hexo init blog</code>：初始化blog<br><code>cd blog</code><br><code>hexo install</code>：安装组件<br><code>hexo server</code>：启动本地预览，登录本地网页查看</li>
 </ol>
-<h1 id="使用Github"><a href="#使用Github" class="headerlink" title="使用Github"></a>使用Github</h1><p>相信大家都有Github账户了吧？没有干劲注册一个，这里就不说了。新建一个Repositories，如下图设置：<br><img src="https://ae01.alicdn.com/kf/H34f1d952ee5c4678b327d710fcaf66b5c.jpg" alt></p>
-<p>现在可以访问 https://你的Github名字.github.io 可以访问你刚才创建的那个仓库，但是由于你那个仓库现在没有静态网页，所以访问有问题。等下会把使用Hexo生成的静态网页推送到那个仓库，便可以在 https://你的Github名字.github.io 访问了，先不急。</p>
+<p>若以上都没问题，说明Hexo已经安装完成，接下来就可以定制化自己的博客网站了。</p>
+<blockquote>
+<p>这里有个小插曲。作者在家里笔记本上面，hexo安装在CentOS7虚拟机上面，开启本地预览，在宿主机浏览器输入<code>虚拟机IP:4000</code>却访问不了，但在虚拟机的浏览器输入<code>localhost:4000</code>却能正常访问。两者又都能ping通。那可能因为虚拟机防火墙没有开启端口4000，开启方法为(其他版本和其他linux发行版自己Google)：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# firewall-cmd --permanent --add-port=4000/tcp</span><br><span class="line">success</span><br><span class="line">[root@localhost ~]# firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用Github"><a href="#使用Github" class="headerlink" title="使用Github"></a>使用Github</h1><p>相信大家都有Github账户了吧？没有干劲注册一个，这里就不说了。新建一个Repositories，如下图设置：<br><img src="https://ae01.alicdn.com/kf/Hcbb4cd3fc26a477ab952e6f88d424dd3o.jpg" alt></p>
+<p>现在可以访问 https://你的Github名字.github.io 可以访问你刚才创建的那个仓库，但是由于你那个仓库现在没有静态网页，所以访问有问题。等下会把使用Hexo生成的静态网页推送到那个仓库，便可以在<code>https://你的Github名字.github.io</code>访问了，先不急。</p>
 <h1 id="定制化网页"><a href="#定制化网页" class="headerlink" title="定制化网页"></a>定制化网页</h1><ul>
 <li>在blog目录中， _config.yml 文件是<strong>站点配置文件</strong>，如部分下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"># Site</span><br><span class="line">title: Hexo # 网站标题</span><br><span class="line">subtitle: # 网站副标题</span><br><span class="line">description: # 网站描述</span><br><span class="line">keywords: # 网站的关键词。使用半角逗号 , 分隔多个关键词。</span><br><span class="line">author: John Doe # 您的名字</span><br><span class="line">language: en # 网站使用的语言</span><br><span class="line">timezone: # 网站时区。Hexo 默认使用您电脑的时区。时区列表。比如说：America/New_York, Japan, 和 UTC 。</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
@@ -337,7 +350,7 @@
 <p>更多字段意义请查看<a href="https://hexo.io/zh-cn/docs/configuration" title="官网" target="_blank" rel="noopener">官网</a>。<br>你可以修改上面字段信息，一般就修改Site信息和最底下Deployment信息。<br>这里说一下Deployment信息配置：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git # git工具推送</span><br><span class="line">  repository: git@github.com:你的Github名字/你的Github名字.github.io.git #推送的仓库地址</span><br><span class="line">  branch: master # master分支推送</span><br></pre></td></tr></table></figure>
 
-<p><strong>注意每个字段’:’后面都要有个空格，不然开启服务会有问题。</strong></p>
+<p><font color="#ff0000"><strong>注意每个字段’:’后面都要有个空格，不然开启服务会有问题。</strong></font></p>
 <ul>
 <li>在blog目录中，source是源文件存放的位置，比如我们markdown文件。可以通过命令<code>hexo new &quot;name&quot;</code>插入新的md文件，并且在source相应目录下生成，当然你也可以直接把md文件拷贝进去。</li>
 <li>在blog目录中，themes是博客主题，可以通过在<strong>站点配置文件</strong>修改字段theme为已经存在的主题，更多主题<a href="https://hexo.io/themes/" title="请到官网" target="_blank" rel="noopener">请到官网</a>。作者使用的是比较通用的next主题，该主题安装和使用请参考<a href="http://theme-next.iissnan.com/getting-started.html#description-setting" title="next主题官网" target="_blank" rel="noopener">next主题官网</a>。</li>
@@ -348,7 +361,17 @@
 <li>先清空上次缓存：<code>hexo clean</code>。</li>
 <li>将md文件生成html页面：<code>hexo g</code>。</li>
 <li>本地预览：<code>hexo s</code></li>
-<li>发布到Github：<code>hexo d</code><br>（第2步和第4步合为一步：<code>hexo g -d</code>）<br>发布成功可以去github仓库看看是否推送成功，最后访问 https://你的Github名字.github.io 进入你的博客。</li>
+<li>发布到Github：<code>hexo d</code><br>（第2步和第4步合为一步：<code>hexo g -d</code>）</li>
+</ol>
+<p>发布成功可以去github仓库看看是否推送成功，最后访问 https://你的Github名字.github.io 进入你的博客。</p>
+<h1 id="绑定阿里云域名"><a href="#绑定阿里云域名" class="headerlink" title="绑定阿里云域名"></a>绑定阿里云域名</h1><p>提前在阿里云域名购买域名，因为需要认证审核需要一点时间，域名后缀的不同价格也不同。现在那作者域名来举例子：<code>tuweiguang.cn</code>。</p>
+<ol>
+<li>在<code>blog</code>目录中创建一个名为<code>CNAME</code>文件，添加一句<code>www.tuweiguang.cn</code>，然后上传这个文件到Github博客仓库。</li>
+<li>登录阿里云域名，进入控制台，解析设置你的域名，如图：<br><img src="https://ae01.alicdn.com/kf/H2b98f36b65c54b18b60a6fe834090187T.jpg" alt><br><img src="https://ae01.alicdn.com/kf/H5258a6acd5bc4201947017434985a87fg.jpg" alt></li>
+<li>设置新手引导，需要填写你的Github那个仓库的IP地址，通过ping你的仓库获取IP地址。比如：<code>ping tuweiguang.github.io</code>。</li>
+<li>然后就自动设置好两个解析记录，如图：<br><img src="https://ae01.alicdn.com/kf/H27b9cba5e16e460b92fa5b5d0461bde1X.jpg" alt><br>可以使用这两个任意一个域名。第一个对应的域名是<code>www.tuweiguang.cn</code>;第二个对应的域名是<code>tuweiguang.cn</code>。作者这里用的是后者。</li>
+<li>登录你的Github，在你的博客仓库中<code>settings</code>，设置如下：<br><img src="https://ae01.alicdn.com/kf/H81547f3cf3044581a431dd655845bff5S.png" alt><br>或者<br><img src="https://ae01.alicdn.com/kf/H080e3e73f13c4bc798842f9a50e5e2892.png" alt></li>
+<li>需要等待一会，通过访问阿里云域名访问你的Github博客仓库了。比如，<a href="https://tuweiguang.cn" title="https://tuweiguang.cn" target="_blank" rel="noopener">https://tuweiguang.cn</a>或者<code>https://www.tuweiguang.cn</code>。</li>
 </ol>
 <h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="https://zhuanlan.zhihu.com/p/60578464" title="使用 Hexo+GitHub 搭建个人免费博客教程" target="_blank" rel="noopener">使用 Hexo+GitHub 搭建个人免费博客教程</a><br><a href="https://github.com/hexojs/hexo/" title="hexo开源代码" target="_blank" rel="noopener">hexo开源代码</a><br><a href="https://www.jianshu.com/p/9f0e90cc32c2" title="Hexo-NexT配置超炫网页效果" target="_blank" rel="noopener">Hexo-NexT配置超炫网页效果</a><br><a href="https://www.jianshu.com/p/1dc893a05234" title="Github Pages绑定阿里云域名" target="_blank" rel="noopener">Github Pages绑定阿里云域名</a></p>
 
@@ -483,7 +506,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建环境"><span class="nav-number">2.</span> <span class="nav-text">搭建环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Git"><span class="nav-number">2.1.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装nodejs"><span class="nav-number">2.2.</span> <span class="nav-text">安装nodejs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">2.3.</span> <span class="nav-text">安装Hexo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Github"><span class="nav-number">3.</span> <span class="nav-text">使用Github</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定制化网页"><span class="nav-number">4.</span> <span class="nav-text">定制化网页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#发布到Github"><span class="nav-number">5.</span> <span class="nav-text">发布到Github</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文章"><span class="nav-number">6.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建环境"><span class="nav-number">2.</span> <span class="nav-text">搭建环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Git"><span class="nav-number">2.1.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装nodejs"><span class="nav-number">2.2.</span> <span class="nav-text">安装nodejs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">2.3.</span> <span class="nav-text">安装Hexo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Github"><span class="nav-number">3.</span> <span class="nav-text">使用Github</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定制化网页"><span class="nav-number">4.</span> <span class="nav-text">定制化网页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#发布到Github"><span class="nav-number">5.</span> <span class="nav-text">发布到Github</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绑定阿里云域名"><span class="nav-number">6.</span> <span class="nav-text">绑定阿里云域名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文章"><span class="nav-number">7.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
             
 
           </div>
