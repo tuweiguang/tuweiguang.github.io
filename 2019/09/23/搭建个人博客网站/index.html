@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://ae01.alicdn.com/kf/H27b9cba5e16e460b92fa5b5d0461bde1X.jpg">
 <meta property="og:image" content="https://ae01.alicdn.com/kf/H81547f3cf3044581a431dd655845bff5S.png">
 <meta property="og:image" content="https://ae01.alicdn.com/kf/H080e3e73f13c4bc798842f9a50e5e2892.png">
-<meta property="og:updated_time" content="2019-09-25T06:22:26.304Z">
+<meta property="og:updated_time" content="2019-09-25T06:31:06.437Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建个人博客网站">
 <meta name="twitter:description" content="前言首先作者近一年多来都有在CSDN平台写博客，之前就一直想尝试搭建一个个人博客，然后再上面写写小东西。终于经过两天的折腾，把博客网站搭建起来了。主要是借助Hexo和Github Pages：  Github Pages是由 GitHub 官方提供的一种免费的静态站点托管服务，让我们可以在 GitHub 仓库里托管和发布自己的静态网站页面。 Hexo 是一个快速、简洁且高效的静态博客框架，它基于">
@@ -366,7 +366,7 @@
 <p>发布成功可以去github仓库看看是否推送成功，最后访问 https://你的Github名字.github.io 进入你的博客。</p>
 <h1 id="绑定阿里云域名"><a href="#绑定阿里云域名" class="headerlink" title="绑定阿里云域名"></a>绑定阿里云域名</h1><p>提前在阿里云域名购买域名，因为需要认证审核需要一点时间，域名后缀的不同价格也不同。现在那作者域名来举例子：<code>tuweiguang.cn</code>。</p>
 <ol>
-<li>在<code>blog</code>目录中创建一个名为<code>CNAME</code>文件，添加一句<code>www.tuweiguang.cn</code>，然后上传这个文件到Github博客仓库。</li>
+<li>在<code>blog/source</code>目录中创建一个名为<code>CNAME</code>文件，添加一句<code>tuweiguang.cn</code>，然后上传这个文件到Github博客仓库。</li>
 <li>登录阿里云域名，进入控制台，解析设置你的域名，如图：<br><img src="https://ae01.alicdn.com/kf/H2b98f36b65c54b18b60a6fe834090187T.jpg" alt><br><img src="https://ae01.alicdn.com/kf/H5258a6acd5bc4201947017434985a87fg.jpg" alt></li>
 <li>设置新手引导，需要填写你的Github那个仓库的IP地址，通过ping你的仓库获取IP地址。比如：<code>ping tuweiguang.github.io</code>。</li>
 <li>然后就自动设置好两个解析记录，如图：<br><img src="https://ae01.alicdn.com/kf/H27b9cba5e16e460b92fa5b5d0461bde1X.jpg" alt><br>可以使用这两个任意一个域名。第一个对应的域名是<code>www.tuweiguang.cn</code>;第二个对应的域名是<code>tuweiguang.cn</code>。作者这里用的是后者。</li>
