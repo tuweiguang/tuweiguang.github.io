@@ -346,65 +346,17 @@
       
         
           
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>首先作者近一年多来都有在CSDN平台写博客，之前就一直想尝试搭建一个个人博客，然后再上面写写小东西。终于经过两天的折腾，把博客网站搭建起来了。主要是借助Hexo和Github Pages：</p>
-<ul>
-<li>Github Pages是由 GitHub 官方提供的一种免费的静态站点托管服务，让我们可以在 GitHub 仓库里托管和发布自己的静态网站页面。</li>
-<li>Hexo 是一个快速、简洁且高效的静态博客框架，它基于 Node.js 运行，可以将我们撰写的 Markdown(.md文件) 文档解析渲染成静态的 HTML 网页。</li>
-</ul>
-<p>简单地说就是：<br><img src="https://ae01.alicdn.com/kf/H346fb90eef08470db0096de21118ea8ee.png" alt></p>
-<h1 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h1><p>作者本地环境：CentOS7 64位。<br>上面也说到了，搭建Hexo需要依赖nodejs环境和Git工具。</p>
-<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>很简单：<code>yum install git</code><br>Git工具若不会，请参考<a href="https://www.liaoxuefeng.com/wiki/896043488029600" title="廖雪峰的Git教程" target="_blank" rel="noopener">廖雪峰的Git教程</a>。</p>
-<h2 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h2><ol>
-<li>nodejs官方下载地址：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a></li>
-<li>下载：<code>wget https://nodejs.org/dist/v10.16.3/node-v10.16.3-linux-x64.tar.xz</code></li>
-<li>参照<a href="https://github.com/nodejs/help/wiki/Installation" title="nodejs官方安装流程" target="_blank" rel="noopener">nodejs官方安装流程</a>安装即可。</li>
-</ol>
-<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><ol>
-<li>安装<br><code>npm install hexo-cli -g</code>：这个过程可能很慢，作者在家安装好几次才安装成功，但是公司一下就好了</li>
-<li>快速开始<br><code>hexo init blog</code>：初始化blog<br><code>cd blog</code><br><code>hexo install</code>：安装组件<br><code>hexo server</code>：启动本地预览，登录本地网页查看</li>
-</ol>
-<p>若以上都没问题，说明Hexo已经安装完成，接下来就可以定制化自己的博客网站了。</p>
-<blockquote>
-<p>这里有个小插曲。作者在家里笔记本上面，hexo安装在CentOS7虚拟机上面，开启本地预览，在宿主机浏览器输入<code>虚拟机IP:4000</code>却访问不了，但在虚拟机的浏览器输入<code>localhost:4000</code>却能正常访问。两者又都能ping通。那可能因为虚拟机防火墙没有开启端口4000，开启方法为(其他版本和其他linux发行版自己Google)：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# firewall-cmd --permanent --add-port=4000/tcp</span><br><span class="line">success</span><br><span class="line">[root@localhost ~]# firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+          前言首先作者近一年多来都有在CSDN平台写博客，之前就一直想尝试搭建一个个人博客，然后再上面写写小东西。终于经过两天的折腾，把博客网站搭建起来了。主要是借助Hexo和Github Pages：
 
-<h1 id="使用Github"><a href="#使用Github" class="headerlink" title="使用Github"></a>使用Github</h1><p>相信大家都有Github账户了吧？没有干劲注册一个，这里就不说了。新建一个Repositories，如下图设置：<br><img src="https://ae01.alicdn.com/kf/Hcbb4cd3fc26a477ab952e6f88d424dd3o.jpg" alt></p>
-<p>现在可以访问 https://你的Github名字.github.io 可以访问你刚才创建的那个仓库，但是由于你那个仓库现在没有静态网页，所以访问有问题。等下会把使用Hexo生成的静态网页推送到那个仓库，便可以在<code>https://你的Github名字.github.io</code>访问了，先不急。</p>
-<h1 id="定制化网页"><a href="#定制化网页" class="headerlink" title="定制化网页"></a>定制化网页</h1><ul>
-<li>在blog目录中， _config.yml 文件是<strong>站点配置文件</strong>，如部分下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"># Site</span><br><span class="line">title: Hexo # 网站标题</span><br><span class="line">subtitle: # 网站副标题</span><br><span class="line">description: # 网站描述</span><br><span class="line">keywords: # 网站的关键词。使用半角逗号 , 分隔多个关键词。</span><br><span class="line">author: John Doe # 您的名字</span><br><span class="line">language: en # 网站使用的语言</span><br><span class="line">timezone: # 网站时区。Hexo 默认使用您电脑的时区。时区列表。比如说：America/New_York, Japan, 和 UTC 。</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>更多字段意义请查看<a href="https://hexo.io/zh-cn/docs/configuration" title="官网" target="_blank" rel="noopener">官网</a>。<br>你可以修改上面字段信息，一般就修改Site信息和最底下Deployment信息。<br>这里说一下Deployment信息配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git # git工具推送</span><br><span class="line">  repository: git@github.com:你的Github名字/你的Github名字.github.io.git #推送的仓库地址</span><br><span class="line">  branch: master # master分支推送</span><br></pre></td></tr></table></figure>
-
-<p><font color="#ff0000"><strong>注意每个字段’:’后面都要有个空格，不然开启服务会有问题。</strong></font></p>
-<ul>
-<li>在blog目录中，source是源文件存放的位置，比如我们markdown文件。可以通过命令<code>hexo new &quot;name&quot;</code>插入新的md文件，并且在source相应目录下生成，当然你也可以直接把md文件拷贝进去。</li>
-<li>在blog目录中，themes是博客主题，可以通过在<strong>站点配置文件</strong>修改字段theme为已经存在的主题，更多主题<a href="https://hexo.io/themes/" title="请到官网" target="_blank" rel="noopener">请到官网</a>。作者使用的是比较通用的next主题，该主题安装和使用请参考<a href="http://theme-next.iissnan.com/getting-started.html#description-setting" title="next主题官网" target="_blank" rel="noopener">next主题官网</a>。</li>
-</ul>
-<p>细心地你肯定已经发现，在blog/themes/next目录下也有一个和<strong>站点配置文件</strong>一样的名字_config.yml，这也是一个配置文件，但是这个是主题的配置文件，把它叫做<strong>主题配置文件</strong>。这个主题配置详情更参考：<a href="https://www.jianshu.com/p/9f0e90cc32c2" target="_blank" rel="noopener">https://www.jianshu.com/p/9f0e90cc32c2</a> 。</p>
-<h1 id="发布到Github"><a href="#发布到Github" class="headerlink" title="发布到Github"></a>发布到Github</h1><p>发布博客：</p>
-<ol>
-<li>先清空上次缓存：<code>hexo clean</code>。</li>
-<li>将md文件生成html页面：<code>hexo g</code>。</li>
-<li>本地预览：<code>hexo s</code></li>
-<li>发布到Github：<code>hexo d</code><br>（第2步和第4步合为一步：<code>hexo g -d</code>）</li>
-</ol>
-<p>发布成功可以去github仓库看看是否推送成功，最后访问 https://你的Github名字.github.io 进入你的博客。</p>
-<h1 id="绑定阿里云域名"><a href="#绑定阿里云域名" class="headerlink" title="绑定阿里云域名"></a>绑定阿里云域名</h1><p>提前在阿里云域名购买域名，因为需要认证审核需要一点时间，域名后缀的不同价格也不同。现在那作者域名来举例子：<code>tuweiguang.cn</code>。</p>
-<ol>
-<li>在<code>blog/source</code>目录中创建一个名为<code>CNAME</code>文件，添加一句<code>tuweiguang.cn</code>，然后上传这个文件到Github博客仓库。</li>
-<li>登录阿里云域名，进入控制台，解析设置你的域名，如图：<br><img src="https://ae01.alicdn.com/kf/H2b98f36b65c54b18b60a6fe834090187T.jpg" alt><br><img src="https://ae01.alicdn.com/kf/H5258a6acd5bc4201947017434985a87fg.jpg" alt></li>
-<li>设置新手引导，需要填写你的Github那个仓库的IP地址，通过ping你的仓库获取IP地址。比如：<code>ping tuweiguang.github.io</code>。</li>
-<li>然后就自动设置好两个解析记录，如图：<br><img src="https://ae01.alicdn.com/kf/H27b9cba5e16e460b92fa5b5d0461bde1X.jpg" alt><br>可以使用这两个任意一个域名。第一个对应的域名是<code>www.tuweiguang.cn</code>;第二个对应的域名是<code>tuweiguang.cn</code>。作者这里用的是后者。</li>
-<li>登录你的Github，在你的博客仓库中<code>settings</code>，设置如下：<br><img src="https://ae01.alicdn.com/kf/H81547f3cf3044581a431dd655845bff5S.png" alt><br>或者<br><img src="https://ae01.alicdn.com/kf/H080e3e73f13c4bc798842f9a50e5e2892.png" alt></li>
-<li>需要等待一会，在Github的<code>settings</code>出现如下图的提示，便可以通过访问阿里云域名访问你的Github博客仓库了。比如，<a href="https://tuweiguang.cn" title="https://tuweiguang.cn" target="_blank" rel="noopener">https://tuweiguang.cn</a>或者<code>https://www.tuweiguang.cn</code>。<br><img src="https://ae01.alicdn.com/kf/He9b1e7d3420a407c87aa0ce512299747q.png" alt></li>
-</ol>
-<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="https://zhuanlan.zhihu.com/p/60578464" title="使用 Hexo+GitHub 搭建个人免费博客教程" target="_blank" rel="noopener">使用 Hexo+GitHub 搭建个人免费博客教程</a><br><a href="https://github.com/hexojs/hexo/" title="hexo开源代码" target="_blank" rel="noopener">hexo开源代码</a><br><a href="https://www.jianshu.com/p/9f0e90cc32c2" title="Hexo-NexT配置超炫网页效果" target="_blank" rel="noopener">Hexo-NexT配置超炫网页效果</a><br><a href="https://www.jianshu.com/p/1dc893a05234" title="Github Pages绑定阿里云域名" target="_blank" rel="noopener">Github Pages绑定阿里云域名</a></p>
-
-          
+Github Pages是由 GitHub 官方提供的一种免费的静态站点托管服务，让我们可以在 GitH
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/09/23/搭建个人博客网站/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -544,73 +496,16 @@
       
         
           
-            <p>最近在看Go语言的goroutine调度，看到一篇理论文章，对一些关于Linux多线程的知识进行进一步的了解并且记录。</p>
-<h1 id="什么是：CPU寄存器-CPU上下文切换？"><a href="#什么是：CPU寄存器-CPU上下文切换？" class="headerlink" title="什么是：CPU寄存器 CPU上下文切换？"></a>什么是：CPU寄存器 CPU上下文切换？</h1><p><strong>CPU寄存器</strong>，是CPU内置的容量小、但速度极快的<font color="#ff0000">内存</font>。<br>在说上下文切换的前，需要知道<br><strong>程序计数器</strong>(Program Counter,PC)，则是用来存储CPU正在执行的指令的位置，或者即将执行的下一条指令的位置。他们(CPU寄存器和程序计数器)都是CPU在运行任何任务前，必须依赖的环境，因此也被叫做CPU上下文。<br><strong>CPU上下文切换</strong>，就是先把前一个任务的CPU上下文(也就是CPU寄存器和程序计数器)保存起来，然后加载新任务的上下文，到这些寄存器和程序计数器，最后再跳转到程序计数器所指的新位置，运行新任务。而保存下来的上下文，会存储在系统内核中，并在任务重新调度执行的时候再加载进来。这样就能保证任务原来的状态不受影响，让任务看起来还是连续运行。<br>CPU上下文切换分为三种：</p>
-<ol>
-<li>进程上下文切换</li>
-<li>线程上下文切换</li>
-<li>中断上下文切换</li>
-</ol>
-<h2 id="进程上下文切换"><a href="#进程上下文切换" class="headerlink" title="进程上下文切换"></a>进程上下文切换</h2><p>Linux 按照特权等级，把进程的运行空间分为内核空间和用户空间，分别对应着下图中。CPU特权等级的Ring0 和 Ring3(也就是说Ring0和Ring3程序可以在CPU上运行)。<br><img src="https://ae01.alicdn.com/kf/H8055632036484b0485d28d50c4a58147L.jpg" alt></p>
-<ol>
-<li>内核空间(Ring 0)具有最高权限，可以直接访问所有资源。</li>
-<li>用户空间(Ring 3)只能访问受限资源，不能直接访问内存等硬件设备，必须通过系统调用陷入到内核中，才能访问这些特权资源。</li>
-</ol>
-<p>换个角度看，也就是说，进程即可以在用户空间运行，又可以在内核空间中运行。进程在用户空间运行是，被称为进程的用户态，而陷入内核空间的时候，被称为进程的内核态。<br>从用户态到内核态的转变，需要通过<font color="#ff0000">系统调用</font>来完成，比如当我们查看文件内容时，就需要多次系统调用来完成：首先调用open()打开文件，然后调用read()读取文件内容，并调用write()将内容写到标准输出，最后再调用close()关闭文件。</p>
-<blockquote>
-<p>那么，系统调用的过程有没有发生CPU上下文切换呢？答案是肯定的。</p>
-</blockquote>
-<p>CPU寄存器里原来用户态的指令位置，需要先保存起来。接着，为了执行内核态代码，CPU寄存器需要更新为内核态指令的新位置。最后才是跳转到内核态运行内核任务。而系统调用结束后，CPU寄存器需要恢复原来保存的用户态，然后再切换到用户空间，继续运行进程，所以一次系统调用的过程，其实是发生了两次CPU上下文切换。<br>不过，需要注意的是，系统调用过程中，并不会涉及到虚拟内存等进程用户态的资源，也不会切换进程。这跟我们通常所说的进程上下文切换是不一样的。<font color="#ff0000">进程上下文切换，是指从一个进程切换到另一个进程运行；而系统调用过程中一直是同一个进程在运行。</font><br>所以，系统调用过程通常称为<font color="#ff0000">特权模式切换</font>，而不是上下文切换。但实际上系统调用过程中，CPU的上下文切换还是无法避免的。</p>
-<blockquote>
-<p>那么，进程上下文切换跟系统调用又有什么区别呢？</p>
-</blockquote>
-<p><font color="#ff0000">首先，进程是由内核来管理和调度的，进程的切换只能发生在内核态。所以进程的上下文不仅包含了虚拟内存、栈、全局变量等用户空间的资源，还包含了内核堆栈、寄存器等内核空间状态。</font><br>因此，进程的上下文切换就比系统调用多了一步：在保存当前进程的内核状态和CPU寄存器之前，需要先把该进程的虚拟内存、栈等用户态资源保存下来；而加载了下一进程的内核态后，还需要刷新新进程的虚拟内存和用户栈。如下图所示，保存上下文和恢复上下文的过程，并不是免费的，需要内核在CPU上允许才能完成。<br><img src="https://ae01.alicdn.com/kf/Hbe1704f42aa44ddc8109cec665aa5c79s.jpg" alt><br>根据Tsuna的测试报告，每次上下文切换都需要几十纳秒到数微妙的CPU时间。这个时间还是相当可观的，特别是进程上下文切换次数较多的情况下，很容易导致CPU将大量的时间耗费在寄存器、内核栈、以及虚拟内存等资源的保存和恢复上，进而大大缩短了真正运行进程的时间。</p>
-<p>另外，我们知道，Linux通过TLB(Translation Lookaside Buffer)来管理虚拟内存到物理内存的映射关系。当虚拟内存更新后，TLB也需要刷新，内存的访问也会随之变慢。特别是在多处理器系统上，缓存是被多个处理器共享的，刷新缓存不仅会影响当前处理器的进程，还会影响共享缓存的其他处理器的进程。</p>
-<blockquote>
-<p>知道了进程上下文切换潜在的性能问题后，我们再来看，究竟什么时候会切换进程上下文？</p>
-</blockquote>
-<p>显然，进程切换时才需要切换上下文，换句话说，只有在进程调度的时候，才需要切换上下文。Linux为每个CPU都维护了一个就绪队列，将获取进程(即正在运行和等待CPU的进程)按照优先级和等待CPU的时间排序，然后选择最需要CPU的进程，也就是优先级最高和等待CPU时间最长的进程来运行。</p>
-<blockquote>
-<p>那么，进程在什么时候才会被调度到CPU上运行呢？</p>
-</blockquote>
-<p>最容易想到的一个时机，就是进程执行完，终止了，它之前使用的CPU会释放出来，这个时候再从就绪队列里，拿一个新的进程过来运行。其实还有很多其他场景，也会触发进程调度，这里逐个梳理下。</p>
-<ol>
-<li>为了保证所有进程可以得到公平调度，CPU时间片被划分为一段段的时间片，这些时间片再被轮流分配给各个进程。这样，当某个进程的时间片耗尽了，就会被系统挂起，切换到其他正在等待CPU的进程运行。</li>
-<li>进程在系统资源不足(比如内存不足)时，需要等到资源满足后才可以运行，这个时候进程也会被挂起，并由系统调度其他进程运行。</li>
-<li>当进程通过睡眠函数sleep这样的方法将自己主动挂起时，自然也会重新调度。</li>
-<li>当有优先级更高的进程运行时，为了保证高优先级进程的运行，当前进程会被挂起，由高优先级的进程来运行。</li>
-<li>当发生硬件中断时，CPU上的进程会被中断挂起，转而执行内核中中断服务程序。</li>
-</ol>
-<h2 id="线程上下文切换"><a href="#线程上下文切换" class="headerlink" title="线程上下文切换"></a>线程上下文切换</h2><p>线程与进程最大的区别在与，<font color="#ff0000">线程是调度的基本单位，而进程则是资源拥有的基本单位</font>。所谓内核中的任务调用，实际上的调度对象是线程；而进程只是给线程提供了虚拟内存、全局变量等资源。所以，对于线程和进程，我们可以这么理解：</p>
-<ul>
-<li>当进程只有一个线程时，可以认为进程就等于线程。</li>
-<li>当进程拥有多个线程时，这些线程会共享相同的虚拟内存和全局变量等资源。这些资源在上下文切换时是不需要修改的。</li>
-<li>线程也有自己的私有数据，比如栈和寄存器等，这些在上下文切换时也是需要保存的。</li>
-</ul>
-<p>这么一来，线程的上下文切换其实就可以分为两种情况：</p>
-<ol>
-<li>前后两个线程属于不同进程，此时，由于资源不共享，所以切换过程就跟进程上下文切换是一样的。</li>
-<li>前后两个线程属于同一个进程，此时，应为虚拟内存是共享的，所以在切换时，虚拟内存这些资源就保持不动，只需要切换线程的私有数据，寄存器等不共享的数据。</li>
-</ol>
-<p>所以同为上下文切换，但同进程内的线程切换，要比多进程间切换消耗更少的资源，这也正是多线程代替多进程的一个优势。</p>
-<h2 id="中断上下文切换"><a href="#中断上下文切换" class="headerlink" title="中断上下文切换"></a>中断上下文切换</h2><p>为了快速响应硬件的时间，中断处理会打断进程的正常调度和执行，转而调用中断处理程序，响应设备时间。而在打断其他进程时，就需要将进程当前的状态保存下来，这样在中断结束后，进程仍然可以从原来的状态恢复运行。<br>因为中断这块一般都不会涉及，所以不做过多介绍。</p>
-<h1 id="Go程序内核线程能有多少个"><a href="#Go程序内核线程能有多少个" class="headerlink" title="Go程序内核线程能有多少个?"></a>Go程序内核线程能有多少个?</h1><p>其实这个是简单的问题(上面已经间接回答了)，在没有看goroutine的MPG调度模型前，我肯定知道，理论上会有N个内核线程；但是看完后，总是模模糊糊的，以为会和CPU个数有关系，其实没有关系，M(即内核线程)是按需创建的，但是如果只有一个cpu（1核）<font color="#ff0000">同一时刻</font>只能执行一个内核线程。(这也算是个误区，很多人认为runtime.GOMAXPROCS可以限制系统线程的数量)。</p>
-<p>虽然M理论上可以有N(但是N &lt; maxcount)个，但是很多以后会有一个问题就是，频繁CPU上下文切换，倒是大多时间都消耗在CPU上下文切换。</p>
-<h1 id="Linux创建的线程是用户级还是内核级线程"><a href="#Linux创建的线程是用户级还是内核级线程" class="headerlink" title="Linux创建的线程是用户级还是内核级线程?"></a>Linux创建的线程是用户级还是内核级线程?</h1><p>你可能知道：线程分为内核态线程和用户态线程，用户态线程需要绑定内核态线程，CPU并不能感知用户态线程的存在，它只知道它在运行1个线程，这个线程实际是内核态线程。<br>线程的实现曾有3种模型：</p>
-<ol>
-<li>多对一(M:1)的用户级线程模型</li>
-<li>一对一(1:1)的内核级线程模型</li>
-<li>多对多(M:N)的两级线程模型</li>
-</ol>
-<p>上面的x对y(x:y)即x个用户态线程对应y个内核调度实体(Kernel Scheduling Entity，这个是内核分配CPU的对象单位)。</p>
-<h2 id="多对一用户线级程模型"><a href="#多对一用户线级程模型" class="headerlink" title="多对一用户线级程模型"></a>多对一用户线级程模型</h2><p>多对一线程模型中，线程的创建、调度、同步的所有细节全部由进程的用户空间线程库来处理。用户态线程的很多操作对内核来说都是透明的，因为不需要内核来接管，这意味不需要内核态和用户态频繁切换。线程的创建、调度、同步处理速度非常快。当然线程的一些其他操作还是要经过内核，如IO读写。这样导致了一个问题：当多线程并发执行时，如果其中一个线程执行IO操作时，内核接管这个操作，如果IO阻塞，用户态的其他线程都会被阻塞，因为这些线程都对应同一个内核调度实体。在多处理器机器上，内核不知道用户态有这些线程，无法把它们调度到其他处理器，也无法通过优先级来调度。这对线程的使用是没有意义的！</p>
-<h2 id="一对一内核极线程模型"><a href="#一对一内核极线程模型" class="headerlink" title="一对一内核极线程模型"></a>一对一内核极线程模型</h2><p>一对一模型中，每个用户线程都对应各自的内核调度实体。内核会对每个线程进行调度，可以调度到其他处理器上面。当然由内核来调度的结果就是：线程的每次操作会在用户态和内核态切换。另外，内核为每个线程都映射调度实体，如果系统出现大量线程，会对系统性能有影响。但该模型的实用性还是高于多对一的线程模型。</p>
-<h2 id="多对多两极线程模型"><a href="#多对多两极线程模型" class="headerlink" title="多对多两极线程模型"></a>多对多两极线程模型</h2><p>多对多模型中，结合了1：1和M：1的优点，避免了它们的缺点。每个线程可以拥有多个调度实体，也可以多个线程对应一个调度实体。听起来好像非常完美，但线程的调度需要由内核态和用户态一起来实现。可想而知，多个对象操作一个东西时，肯定要一些其他的同步机制。用户态和内核态的分工合作导致实现该模型非常复杂。linux多线程模型曾经也想使用该模型，但它太复杂，要对内核进行大范围改动，所以还是采用了一对一的模型！！！</p>
-<p>那么，Linux下C语言thread_create函数创建的线程属于用户级还是内核级。其实创建的还是用户级线程，只不过对应了一个内核级的内核调度线程(这个线程实际的内核调度器分配的)，即一对一(1:1)的内核级线程模型。</p>
-<p>Go语言中goroutine使用就是一种特殊的两级线程模型(MPG模型)。得益于这种模型，所以Go语言并发性比其他语言都要好。</p>
-<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="https://www.jianshu.com/p/4393a4537eca" title="CPU上下文切换是什么" target="_blank" rel="noopener">CPU上下文切换是什么</a><br><a href="https://www.linuxidc.com/Linux/2016-01/127559.htm" title="Linux历史上线程的3种实现模型 " target="_blank" rel="noopener">Linux历史上线程的3种实现模型 </a><br><a href="https://i6448038.github.io/2017/12/04/golang-concurrency-principle/" title="Go并发原理" target="_blank" rel="noopener">Go并发原理</a></p>
-
-          
+          最近在看Go语言的goroutine调度，看到一篇理论文章，对一些关于Linux多线程的知识进行进一步的了解并且记录。
+什么是：CPU寄存器 CPU上下文切换？CPU寄存器，是CPU内置的容量小、但速度极快的内存。在说上下文切换的前，需要知道程序计数器(Program Counter,PC)，则是用
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/21/Linux 上下文切换 寄存器 内核线程 用户线程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
