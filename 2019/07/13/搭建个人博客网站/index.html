@@ -868,14 +868,21 @@
 
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
   <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="/js/src/md5.min.js"></script>
+
    <script type="text/javascript">
         var gitalk = new Gitalk({
           clientID: 'b73f2f000e8e306f6271',
           clientSecret: '335259778f3eff7279256ab3af1b739823a481fa',
           repo: 'tuweiguang.github.io',
-          owner: 'tuweiguang',
+          <!-- owner: 'tuweiguang', -->
+          owner: '',
           admin: ['tuweiguang'],
-          id: location.pathname,
+          <!--  id: location.pathname, -->
+          id: md5(),
+          perPage: ,
+          pagerDirection: '',
+          createIssueManually: ,
           distractionFreeMode: 'true'
         })
         gitalk.render('gitalk-container')           
