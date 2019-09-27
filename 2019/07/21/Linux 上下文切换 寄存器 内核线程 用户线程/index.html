@@ -804,17 +804,16 @@
 
    <script type="text/javascript">
         var gitalk = new Gitalk({
+          <!-- clientID: 'b73f2f000e8e306f6271',
+          clientSecret: '335259778f3eff7279256ab3af1b739823a481fa', -->
           clientID: 'b73f2f000e8e306f6271',
           clientSecret: '335259778f3eff7279256ab3af1b739823a481fa',
           repo: 'tuweiguang.github.io',
-          <!-- owner: 'tuweiguang', -->
-          owner: '',
+          owner: 'tuweiguang',
           admin: ['tuweiguang'],
           <!--  id: location.pathname, -->
-          id: md5(),
+          id: md5({localtion.pathname),
           perPage: ,
-          pagerDirection: '',
-          createIssueManually: ,
           distractionFreeMode: 'true'
         })
         gitalk.render('gitalk-container')           
