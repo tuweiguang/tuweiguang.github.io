@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="该篇Blog主要是记录学习Git过程中所使用到的一些操作命令，以方便以后查找。强烈建议初学者参考廖雪峰的Git教程。  git与svn区别最大不同是，使用git，在没有网络的情况下，你可以提交给本地（即本地服务器），在本地做版本管理的所有处理。比如提交版本1，提交版本2，提交3，然后恢复版本1，开一个分支，切换分支，修改代码，合并分支。这和集中式的svn非常不同，svn你离线时可以提交吗？绝对不">
+<meta name="keywords" content="Golang,C&#x2F;C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git学习笔记">
+<meta property="og:url" content="http://yoursite.com/2019/09/01/Git学习笔记/index.html">
+<meta property="og:site_name" content="Twilight">
+<meta property="og:description" content="该篇Blog主要是记录学习Git过程中所使用到的一些操作命令，以方便以后查找。强烈建议初学者参考廖雪峰的Git教程。  git与svn区别最大不同是，使用git，在没有网络的情况下，你可以提交给本地（即本地服务器），在本地做版本管理的所有处理。比如提交版本1，提交版本2，提交3，然后恢复版本1，开一个分支，切换分支，修改代码，合并分支。这和集中式的svn非常不同，svn你离线时可以提交吗？绝对不">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-28T07:05:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git学习笔记">
+<meta name="twitter:description" content="该篇Blog主要是记录学习Git过程中所使用到的一些操作命令，以方便以后查找。强烈建议初学者参考廖雪峰的Git教程。  git与svn区别最大不同是，使用git，在没有网络的情况下，你可以提交给本地（即本地服务器），在本地做版本管理的所有处理。比如提交版本1，提交版本2，提交3，然后恢复版本1，开一个分支，切换分支，修改代码，合并分支。这和集中式的svn非常不同，svn你离线时可以提交吗？绝对不">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/01/Git学习笔记/">
+
+
+
+
+
+  <title>Git学习笔记 | Twilight</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Twilight</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">孤独是种认可，我愿为我狂热</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home //首页"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th //分类"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive //归档"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user  //关于"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/01/Git学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Weiguang.Tu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/weixin.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Twilight">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Git学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-01T15:12:22+08:00">
+                2019-09-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>该篇Blog主要是记录学习Git过程中所使用到的一些操作命令，以方便以后查找。强烈建议初学者参考<a href="https://www.liaoxuefeng.com/wiki/896043488029600" title="廖雪峰的Git教程" target="_blank" rel="noopener">廖雪峰的Git教程</a>。</p>
+</blockquote>
+<h1 id="git与svn区别"><a href="#git与svn区别" class="headerlink" title="git与svn区别"></a>git与svn区别</h1><p>最大不同是，使用git，在没有网络的情况下，你可以提交给本地（即本地服务器），在本地做版本管理的所有处理。比如提交版本1，提交版本2，提交3，然后恢复版本1，开一个分支，切换分支，修改代码，合并分支。这和集中式的svn非常不同，svn你离线时可以提交吗？绝对不能。git则可以在无网络情况下本地提交，他把提交版本（即提交到本地服务器）与推送服务器（即中央服务器）这两个概念分开了。而svn之流是融为一体的，提交即推送给服务器（即中央服务器）。因此，git是去中心的，他的服务器并非必须的，只是为了方便大家交流使用，你完全可以把git中央服务器想象成一个参与者，他得电脑始终在线，他不写代码，只接受大家的推送与合并，然后供其他用户从他这里拉取信息。</p>
+<h1 id="git三个分区"><a href="#git三个分区" class="headerlink" title="git三个分区"></a>git三个分区</h1><p>工作区：实际目录，不包括.git<br>暂存区: 版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区<br>版本库：隐藏目录.git，最终push也是推送这个版本</p>
+<h1 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h1><p><code>git init</code>:在当前目录初始化git仓库，生成 .git 目录<br><code>git add 文件名</code>：将文件添加到本地服务器（暂存区）<br><code>git commit -m “xxx”</code> ：将多次修改增加删除的文件提交到本地服务器<br><code>git status</code>：查看文件提交状态</p>
+<p>【<font color="#0000ff">两种比较</font>】</p>
+<ul>
+<li><code>git diff 文件名</code> :比较的是当前分支的工作区和当前分支暂存区的差别(若git add后没有修改，就没有差别)</li>
+<li><code>git diff HEAD -- 文件名</code>:比较的是当前分支工作区和当前分支版本库的差别</li>
+<li><code>git diff 别的分支名 -- 文件名</code>:比较的是当前分支工作区和别的分支版本库的差别</li>
+</ul>
+<p><code>git log [--pretty=oneline]</code>：commit提交历史记录<br><code>git reflog</code>：历史命令，查看commit号<br><code>git reset --hard [0xXXXXX]</code>：回退到哪个commit版本<br><code>git reset --hard HEAD[^...]</code>：回退上第几个版本</p>
+<p>【<font color="#0000ff">四种撤销</font>】<br>命令<code>git checkout -- readme.txt</code>意思就是，把readme.txt文件在工作区的修改全部撤销，这里有两种情况：</p>
+<ul>
+<li>readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态; —&gt; (工作区和版本库一模一样)</li>
+<li>readme.txt已经添加到暂存区后，”又作了修改”，现在，撤销修改就回到添加到暂存区后的状态。 —&gt; （工作区<code>git add</code>（但未<code>git commit</code>）后又修改，回到修改前的，工作区和暂存区一模一样）</li>
+</ul>
+<p>总之，就是让这个文件回到最近一次<code>git commit</code>或<code>git add</code>时的状态。还有下面两种撤销：</p>
+<ul>
+<li><code>git reset HEAD &lt;file&gt;</code>：可以把暂存区的修改撤销掉（unstage）（同时<code>git reset</code>可以回退版本），但是没有撤销工作区，再使用<code>git checkout -- &lt;file&gt;</code>：把工作区也撤销 —&gt; （撤销暂存区和工作区到以前那样）</li>
+<li><code>git add</code> 和<code>git commit</code>后，使用<code>git reset --hard</code> 回退到具体版本。</li>
+</ul>
+<p>【<font color="#0000ff">删除文件</font>】</p>
+<ol>
+<li>先删除工作区文件:删除工作区文件。</li>
+<li>git rm 文件:删除暂存区文件。</li>
+<li>git commit :删除版本库文件。</li>
+</ol>
+<p>【<font color="#0000ff">为github创建SSH Key</font>】<br><code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code>：把邮件地址换成你自己的邮件地址，然后一路回车，使用默认值即可，由于这个Key也不是用于军事目的，所以也无需设置密码。创建SSH key，在<code>~/.ssh</code>目录生成<code>id_rsa（私钥）</code>和<code>id_rsa.pub（公钥）</code>，并把公钥内容在github上设置好，你就可以push你的代码了。<br><code>cd ~</code>进入用户主目录<br><code>ls -a</code> 可以看到.ssh目录</p>
+<p>【<font color="#0000ff">克隆远程仓库</font>】<br><code>git clone git@github.com:账户/hello.git</code> —&gt; ssh协议,更快,推荐<br><code>git clone https://github.com/账户/hello.git</code> —&gt; https协议</p>
+<p>【<font color="#0000ff">分支</font>】<br><font color="#ff0000">HEAD:指向的就是当前分支，切换到哪个分支，HEAD就指向哪个分支。</font><br>master:主分支<br><code>git checkout -b 分支名</code> :从当前分支或主分支创建分支并切换到分支<br>等效于<br><code>git branch 分支名</code> ：从当前分支创建分支<br><code>git checkout 分支名</code> ：切换分支</p>
+<p><code>git branch</code>：查看分支<br><code>git merge 分支名</code>：合并指定分支到当前分支<br><code>git merge --no-ff -m &quot;commit描述&quot; 分支名</code>：将分支名merge到当前分支，并且新创建commit<br><code>git branch -d 分支名</code>：删除分支<br><code>git branch -D 分支名</code>：强制删除分支。如果分支有commit但是没有merge（如果有merge到任意分支，普通删除就行），普通删除分支是不允许的。</p>
+<p><code>git log --graph --pretty=oneline --abbrev-commit</code>：查看历史commit记录，带图形显示</p>
+<p>【<font color="#0000ff">保存现场</font>】<br><font color="#ff0000"><strong>切换到别的分支前，需要把在当前分支修改的commit或者stash，不然你在当前分支修改的切换到别的分支也能看到你修改的。</strong></font><br><code>git stash</code>：把当前未commit(但可以是git add过并且在恢复现场后需要重新git add)的工作现场给隐藏起来，可以多次stash，保存完现场后然后执行git status会看到之前的修改全部clean了。<br><code>git stash list</code>：查看当前分支隐藏的工作现场，可能会有多个，以stash@{n}显示。<br><code>git stash apply stash@{n}</code>：恢复指定隐藏现场<br><code>git stash drop  stash@{n}</code>：删除指定隐藏现场<br><code>git stash pop</code>：恢复最近一次隐藏现场并且删除它</p>
+<p>【<font color="#0000ff">merge某次commit</font>】<br><code>git cherry-pick 4c805e2</code>：将4c805e2次commit的内容（不是整个分支内容）复制到当前分支，可能有冲突。（在执行之前如果当前分支有改动需要将当前分支commit或stash）</p>
+<p>【<font color="#0000ff">远程库</font>】<br>origin：远程仓库的默认名称。<br><code>git remote -v</code>:查看远程库的信息<br><code>git push origin master</code>：把已经存在并提交的主分支推送到远程origin仓库。<br><code>git push origin 本地其他分支名</code>：把本地已经存在并提交的分支推送到远程仓库分支。若远程服务器没有该分支，第一次push到远程服务器，远程服务器新创建一样的分支;若本地分支名与远程分支已经链接，则将推送更新相应的分支。<br><code>git pull</code>：从远程库拉取当前所链接对应的分支。若第一次拉取，需要将远程拉取的分支名与当前所在的分支名进行链接：<code>git branch --set-upstream-to=origin/远程分支名 本地分支名</code> （远程分支名与本地分支名需要相同，不然push会创建新的分支）<br>再进行拉取，可能有冲突，解决冲突，<code>git add</code>和<code>commit</code>，然后<code>git push origin 相应分支名</code>，推送到远程服务器。</p>
+<blockquote>
+<p>坑：在关闭终端后隔了一天（有时候可能出现），远程分支有被修改，重新打开终端，修改本地分支，add、commit、push虽然会提示pull，但是pull后代码并没有更新，需要重新”git branch –set-upstream-to=origin/远程分支名 本地分支名“来建立链接，重新pull才回更新代码。</p>
+</blockquote>
+<p>【<font color="#0000ff">创建标签</font>】<br><code>git tag 标签名</code>:为最新一次commit创建tag<br><code>git tag 标签名 commit号前几位</code>：为特定commit创建tag<br><code>git tag -a 标签名 -m &quot;tag信息&quot; commit号前几位</code>：为特定commit创建tag并添加附加信息</p>
+<p><code>git show 标签名</code>：查看标签信息</p>
+<p>【<font color="#0000ff">删除标签</font>】<br><code>git tag -d 标签名</code>：删除本地标签<br>删除远程标签：<br>1.<code>git tag -d 标签名</code>：删除本地tag<br>2.<code>git push origin :refs/tags/标签名</code>：推送到远程删除标签</p>
+<p>【<font color="#0000ff">标签推送远程</font>】<br><code>git push origin 标签名</code>：将某标签推送远程<br><code>git push origin --tags</code>：一次性推送全部尚未推送到远程的本地标签</p>
+<ol>
+<li>可以在远程对应的tag看到相应的推送代码，但是在相应的分支却没有更新代码，也就是说可以不git push到远程也能把tag push到远程。</li>
+<li>假如tag有v1，v2，v3，本地删除v3（并没有删除v3所对应的修改），然后再推送全部tag到远程，在远程tag中只能看到v1，v2对应的代码；但是这时本地再创建tag v4并推送到远程，在远程可以在tag的v4看到包含v3的代码。</li>
+</ol>
+<p>【<font color="#0000ff">忽略特殊文件</font>】<br>在工作区的根目录创建.gitignore文件,将要忽略要上传的文件比如exe文件。注意：<code>.gitignore</code>文件需要commit并push到远程库。<br><code>.gitignore</code>文件规则简单使用如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">*          # 忽略全部</span><br><span class="line"> </span><br><span class="line">*.exe      # 忽略某类型文件</span><br><span class="line">*.so</span><br><span class="line"> </span><br><span class="line">!/ch01/    # 不忽略的文件夹</span><br><span class="line">!/ch02/</span><br><span class="line"> </span><br><span class="line">!*.c       # 不忽略的文件</span><br><span class="line">!*.h</span><br><span class="line">!*.cpp</span><br><span class="line">!*.md</span><br><span class="line">!*.txt</span><br></pre></td></tr></table></figure>
+
+<p>对于各种忽略文件可以在线查看：<a href="https://github.com/github/gitignore" target="_blank" rel="noopener">https://github.com/github/gitignore</a> </p>
+<p>添加某个被忽略的文件：<br><code>git add App.class</code><br>或者 <code>git add -f App.class</code>：强制添加<br><code>git check-ignore -v App.class</code>：检查App.class文件是否被忽略，并显示在.gitignore文件忽略App.class文件的行数</p>
+<p>【<font color="#0000ff">配置文件</font>】<br>配置Git的时候，加上–global是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。<br>每个仓库的Git配置文件放在.git/config，也可以<code>git config --local --list</code> 查看<br>当前用户的Git配置文件放在<del>/.gitconfig，也可以<code>git config --global --list</code> 查看<br>比如设置name和mail可以在</del>/.gitconfig中看到相应值：<br><code>git config --global user.name &quot;Your Name&quot;</code><br><code>git config --global user.email &quot;email@example.com&quot;</code></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <!-- JS库 clipboard 拷贝内容到粘贴板-->
+<script src="https://cdn.bootcss.com/clipboard.js/2.0.1/clipboard.min.js"></script>
+
+<!-- JS库 sweetalert 显示提示信息-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<ul class="post-copyright">
+
+  <!-- 本文标题 -->
+  <li>
+    <strong>本文标题： </strong>
+    Git学习笔记
+  </li>
+
+  <!-- 本文作者 -->
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Weiguang.Tu
+  </li>
+
+  <!-- 创建时间 -->
+  <li>
+    <strong>创建于： </strong>
+    2019年09月01日 - 15时09分
+  </li>
+
+  <!-- 修改时间 -->
+  <li>
+    <strong>更新于： </strong>
+    2019年09月28日 - 15时09分
+  </li>
+
+<!--
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/09/01/Git学习笔记/" title="Git学习笔记">http://yoursite.com/2019/09/01/Git学习笔记/</a>
+  </li>
+-->
+
+  <!-- 引用链接 -->
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/09/01/Git学习笔记/" title="Git学习笔记">http://yoursite.com/2019/09/01/Git学习笔记/</a>
+    <span class="copy-path" title="点击复制引用链接"><i style="cursor: pointer" class="fa fa-clipboard" data-clipboard-text="['s Blog | Git学习笔记](http://yoursite.com/2019/09/01/Git学习笔记/)" aria-label="post.copy_success"></i></span>
+  </li>
+
+  <!-- 版权声明 -->
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href rel="external nofollow" target="_blank"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a></a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+<script>
+  var clipboard = new ClipboardJS('.fa-clipboard');
+  clipboard.on('success', function(target){
+    var message = document.createElement('div');
+    message.innerHTML = '<i class="fa fa-check-circle message-icon"></i><span class="message-content">' + target.trigger.getAttribute('aria-label') + '</span>';
+    swal({
+      content: message,
+      className: "copy-success-message",
+      timer: 1000,
+      button: false
+    });
+  });
+</script>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/04/Go 三个点省略号...使用总结/" rel="next" title="Go 三个点省略号" ..."使用总结">
+                <i class="fa fa-chevron-left"></i> Go 三个点省略号"..."使用总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/05/Go JSON编解码/" rel="prev" title="Go JSON编解码">
+                Go JSON编解码 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/weixin.png" alt="Weiguang.Tu">
+            
+              <p class="site-author-name" itemprop="name">Weiguang.Tu</p>
+              <p class="site-description motion-element" itemprop="description">技术在于折腾</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tuweiguang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:tuweiguang@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_31930499" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-link"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.google.com" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git与svn区别"><span class="nav-number">1.</span> <span class="nav-text">git与svn区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git三个分区"><span class="nav-number">2.</span> <span class="nav-text">git三个分区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git命令"><span class="nav-number">3.</span> <span class="nav-text">git命令</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Weiguang.Tu</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+-->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
