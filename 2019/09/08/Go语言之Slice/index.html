@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://ae01.alicdn.com/kf/H6fd78b01b7c4461ba98f4ea936120d80u.png">
 <meta property="og:image" content="https://ae01.alicdn.com/kf/H9bf44afcc7614245ae236875df589d07V.png">
 <meta property="og:image" content="https://ae01.alicdn.com/kf/H8cbc062eaa7f4fd6b9c61dd42d6b8ff0D.png">
-<meta property="og:updated_time" content="2019-09-28T08:31:44.000Z">
+<meta property="og:updated_time" content="2019-10-14T03:41:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go语言之Slice">
 <meta name="twitter:description" content="Tips:以下代码在go1.12.6 windows/amd64版本下测试分析，版本不同在分析源码的时候略有不同。  问题产生最近群里有人提了下面一个问题，源码差不多是这样： 1234567func f1()  &amp;#123;	s := []int&amp;#123;1,2,3,4,5&amp;#125;	l := len(s)	copy(s,s[1:])	s = s[:l-1]	fmt.Println(s)&amp;#">
@@ -389,6 +389,9 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s1[<span class="number">2</span>] = <span class="number">20</span></span><br></pre></td></tr></table></figure>
 
 <p>这次只会影响原始数组相应位置的元素。它影响不到 s2 了，人家已经远走高飞了。<br><img src="https://ae01.alicdn.com/kf/H9bf44afcc7614245ae236875df589d07V.png" alt><br>再提一点，打印 s1 的时候，只会打印出 s1 长度以内的元素。所以，只会打印出3个元素，虽然它的底层数组不止3个元素。</p>
+<blockquote>
+<p>上面4张图来自<a href="https://www.cnblogs.com/qcrao-2018/p/10631989.html#%E6%88%AA%E5%8F%96" title="饶大在深入解密slice" target="_blank" rel="noopener">饶大在深入解密slice</a></p>
+</blockquote>
 <h1 id="传值还是传指针"><a href="#传值还是传指针" class="headerlink" title="传值还是传指针"></a>传值还是传指针</h1><p>先看一个例子：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	s := []<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;</span><br><span class="line">	f(s)</span><br><span class="line">	fmt.Println(s)</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">f</span><span class="params">(s []<span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	s[<span class="number">0</span>] = <span class="number">100</span></span><br><span class="line">	s[<span class="number">1</span>] = <span class="number">100</span></span><br><span class="line">	s[<span class="number">2</span>] = <span class="number">100</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
