@@ -95,7 +95,7 @@
 <meta property="og:image" content="https://ae01.alicdn.com/kf/H81547f3cf3044581a431dd655845bff5S.png">
 <meta property="og:image" content="https://ae01.alicdn.com/kf/H080e3e73f13c4bc798842f9a50e5e2892.png">
 <meta property="og:image" content="https://ae01.alicdn.com/kf/He9b1e7d3420a407c87aa0ce512299747q.png">
-<meta property="og:updated_time" content="2019-09-26T09:01:54.000Z">
+<meta property="og:updated_time" content="2020-03-03T08:38:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建个人博客网站">
 <meta name="twitter:description" content="前言首先作者近一年多来都有在CSDN平台写博客，之前就一直想尝试搭建一个个人博客，然后再上面写写小东西。终于经过两天的折腾，把博客网站搭建起来了。主要是借助Hexo和Github Pages：  Github Pages是由 GitHub 官方提供的一种免费的静态站点托管服务，让我们可以在 GitHub 仓库里托管和发布自己的静态网站页面。 Hexo 是一个快速、简洁且高效的静态博客框架，它基于">
@@ -398,6 +398,9 @@
 <li>发布到Github：<code>hexo d</code><br>（第2步和第4步合为一步：<code>hexo g -d</code>）</li>
 </ol>
 <p>发布成功可以去github仓库看看是否推送成功，最后访问 https://你的Github名字.github.io 进入你的博客。</p>
+<blockquote>
+<p>若第一次安装git，在第4步会由问题，需要设置<code>git config --global user.name &quot;Your Name&quot;</code>和<code>git config --global user.email &quot;you@example.com&quot;</code>，并且需要在GitHub中设置SSH keys，具体操作请看<a href="https://www.liaoxuefeng.com/wiki/896043488029600/896954117292416" title="为GitHub设置公钥" target="_blank" rel="noopener">为GitHub设置公钥</a>。</p>
+</blockquote>
 <h1 id="绑定阿里云域名"><a href="#绑定阿里云域名" class="headerlink" title="绑定阿里云域名"></a>绑定阿里云域名</h1><p>提前在阿里云域名购买域名，因为需要认证审核需要一点时间，域名后缀的不同价格也不同。现在那作者域名来举例子：<code>tuweiguang.cn</code>。</p>
 <ol>
 <li>在<code>blog/source</code>目录中创建一个名为<code>CNAME</code>文件，添加一句<code>tuweiguang.cn</code>，然后上传这个文件到Github博客仓库。</li>
